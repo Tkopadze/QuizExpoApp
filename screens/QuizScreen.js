@@ -4,9 +4,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import axios from "axios";
 import he from "he";
 import defaultStyles from "../styles/style.js";
-
-const API_URL = "https://opentdb.com/api.php";
-
+import appSettings from "../appSettings.js";
 const QuizScreen = () => {
   const navigation = useNavigation();
   const route = useRoute();
@@ -22,7 +20,7 @@ const QuizScreen = () => {
   const fetchQuestions = async () => {
     try {
       const response = await axios.get(
-        `${API_URL}?amount=10&category=${category}&difficulty=${difficulty}`
+        `${appSettings.API_URL}/api.php?amount=10&category=${category}&difficulty=${difficulty}`
       );
       const decodedQuestions = response.data.results.map((question) => ({
         ...question,

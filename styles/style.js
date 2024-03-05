@@ -46,7 +46,7 @@ const defaultStyles = {
     color: "#fff", // White text color
   },
   optionsContainer: {
-    marginBottom: 20,
+    //marginBottom: 20,
     width: "100%",
   },
   image: {
@@ -68,6 +68,8 @@ const defaultStyles = {
   },
   button: {
     marginBottom: 10, // Add margin between each button
+    border: "2px solid black",
+    color: "black",
   },
 };
 

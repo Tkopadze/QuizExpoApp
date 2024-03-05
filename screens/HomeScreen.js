@@ -3,6 +3,7 @@ import { View, Text, Button, StyleSheet, Picker } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import defaultStyles from "../styles/style.js";
+import AppSettings from "../appSettings.js";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -16,7 +17,7 @@ const HomeScreen = () => {
     const fetchCategoriesAndDifficulties = async () => {
       try {
         const response = await axios.get(
-          "https://opentdb.com/api_category.php"
+          `${AppSettings.API_URL}/api_category.php`
         );
         const { trivia_categories } = response.data;
         setCategories(trivia_categories);
