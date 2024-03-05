@@ -77,14 +77,14 @@ const QuizScreen = () => {
               title={option}
               onPress={() => handleAnswer(option)}
               color={defaultStyles.buttonColor.backgroundColor}
-              style={defaultStyles.button} // Apply the button style
+              style={defaultStyles.button}
             />
           ))}
           <Button
             title={currentQuestion.correct_answer}
             onPress={() => handleAnswer(currentQuestion.correct_answer)}
             color={defaultStyles.buttonColor.backgroundColor}
-            style={defaultStyles.button} // Apply the button style
+            style={defaultStyles.button}
           />
         </View>
       )}

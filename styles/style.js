@@ -19,16 +19,16 @@ const defaultStyles = {
     color: "rgb(158 245 200)",
   },
   lightText: {
-    color: "rgb(158 245 200)", // Yellow text color
+    color: "rgb(158 245 200)",
   },
   darkText: {
-    color: "#00433C", // Darker text color for categories
+    color: "#00433C",
   },
   buttonColor: {
-    backgroundColor: "#00c2b7", // Button color
+    backgroundColor: "#00c2b7",
   },
   header: {
-    backgroundColor: "#4D7C8A", // Lighter green header background color
+    backgroundColor: "#4D7C8A",
     paddingVertical: 10,
     paddingHorizontal: 20,
     marginBottom: 20,
@@ -37,18 +37,14 @@ const defaultStyles = {
   headerText: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "#fff", // White text color
+    color: "#fff",
   },
   questionText: {
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 20,
     textAlign: "center",
-    color: "#fff", // White text color
-  },
-  optionsContainer: {
-    //marginBottom: 20,
-    width: "100%",
+    color: "#fff",
   },
   image: {
     width: "100%",
@@ -71,7 +67,7 @@ const defaultStyles = {
     justifyContent: "space-around",
   },
   button: {
-    marginBottom: 10,
+    marginVertical: 10,
     borderBottomWidth: 2,
   },
 };
