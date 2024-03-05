@@ -5,6 +5,7 @@ const defaultStyles = {
     alignItems: "center",
     paddingHorizontal: 20,
     backgroundColor: "#203331",
+    maxWidth: "100%",
   },
   label: {
     fontSize: 18,
@@ -58,18 +59,20 @@ const defaultStyles = {
   },
   loadingText: {
     fontSize: 18,
-    color: "#F5F18E", // Light yellow text color
+    color: "#F5F18E",
   },
   optionsContainer: {
     marginBottom: 20,
     width: "100%",
-    flexDirection: "column", // Make buttons stack vertically
-    alignItems: "stretch", // Stretch buttons to fill the width
+    maxWidth: "100%",
+    flexDirection: "column",
+    alignItems: "stretch",
+    minHeight: "20%",
+    justifyContent: "space-around",
   },
   button: {
-    marginBottom: 10, // Add margin between each button
-    border: "2px solid black",
-    color: "black",
+    marginBottom: 10,
+    borderBottomWidth: 2,
   },
 };
 

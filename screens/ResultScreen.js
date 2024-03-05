@@ -1,7 +1,5 @@
-// screens/ResultScreen.js
-
 import React from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text, Button } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import defaultStyles from "../styles/style.js";
 
@@ -11,7 +9,7 @@ const ResultScreen = () => {
   const { score } = route.params;
 
   const restartQuiz = () => {
-    navigation.popToTop(); // Reset navigation stack
+    navigation.popToTop();
   };
 
   return (
@@ -27,19 +25,5 @@ const ResultScreen = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    paddingHorizontal: 20,
-  },
-  resultText: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 20,
-  },
-});
 
 export default ResultScreen;

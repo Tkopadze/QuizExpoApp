@@ -13,7 +13,6 @@ const HomeScreen = () => {
   const [selectedDifficulty, setSelectedDifficulty] = useState("");
 
   useEffect(() => {
-    // Fetch categories and difficulties from the API
     const fetchCategoriesAndDifficulties = async () => {
       try {
         const response = await axios.get(
@@ -21,7 +20,7 @@ const HomeScreen = () => {
         );
         const { trivia_categories } = response.data;
         setCategories(trivia_categories);
-        setDifficulties(["easy", "medium", "hard"]); // Assuming difficulties are fixed
+        setDifficulties(["easy", "medium", "hard"]);
       } catch (error) {
         console.error("Error fetching categories and difficulties:", error);
       }
@@ -75,23 +74,5 @@ const HomeScreen = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    paddingHorizontal: 20,
-  },
-  label: {
-    fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 10,
-  },
-  picker: {
-    width: "100%",
-    marginBottom: 20,
-  },
-});
 
 export default HomeScreen;
