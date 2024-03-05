@@ -41,14 +41,23 @@ const QuizScreen = () => {
   const handleAnswer = (selectedAnswer) => {
     const isCorrect =
       selectedAnswer === questions[currentQuestionIndex].correct_answer;
-    if (isCorrect) {
-      setScore(score + 1);
+    let newScore = score;
+
+    if (currentQuestionIndex === 0) {
+      if (isCorrect) {
+        newScore = 1;
+      }
+    } else {
+      if (isCorrect) {
+        newScore = score + 1;
+      }
     }
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      navigation.navigate("Result", { score });
+      navigation.navigate("Result", { score: newScore });
     }
+    setScore(newScore);
   };
 
   const currentQuestion = questions[currentQuestionIndex];
