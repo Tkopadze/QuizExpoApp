@@ -1,9 +1,5 @@
 import React from "react";
-
-import {
-  createStackNavigator,
-  TransitionPresets,
-} from "@react-navigation/stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "./screens/HomeScreen";
 import QuizScreen from "./screens/QuizScreen";
@@ -17,9 +13,13 @@ const App = () => {
       <Stack.Navigator
         initialRouteName="Home"
         screenOptions={{
-          headerStyle: { backgroundColor: "#5DBBB2" },
+          headerStyle: { backgroundColor: "#5DBBB2", height: 80 },
           headerTintColor: "#00433C",
-          ...TransitionPresets.SlideFromRightIOS, // Apply slide animation
+          cardStyle: {
+            backgroundColor: "#5DBBB2",
+            padding: 0,
+            overflow: "hidden",
+          },
         }}
       >
         <Stack.Screen name="Home" component={HomeScreen} />

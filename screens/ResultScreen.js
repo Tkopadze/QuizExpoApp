@@ -13,7 +13,7 @@ const ResultScreen = () => {
   };
 
   return (
-    <View style={[defaultStyles.container, defaultStyles.backgroundColor]}>
+    <View style={[defaultStyles.container, defaultStyles.darkBackground]}>
       <Text style={[defaultStyles.label, defaultStyles.backgroundColor]}>
         Your Score: {score}
       </Text>
