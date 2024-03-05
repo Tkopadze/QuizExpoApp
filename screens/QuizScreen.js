@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Button, Image } from "react-native";
+import { View, Text, Image, FlatList, StyleSheet } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import axios from "axios";
 import he from "he";
 import defaultStyles from "../styles/style.js";
 import appSettings from "../appSettings.js";
+import { OptionsBtn } from "../components/components.js";
+
 const QuizScreen = () => {
   const navigation = useNavigation();
   const route = useRoute();
@@ -69,40 +71,31 @@ const QuizScreen = () => {
       <Text style={[defaultStyles.questionText, defaultStyles.lightText]}>
         {currentQuestion.question}
       </Text>
-      {currentQuestion.type === "multiple" && (
-        <View style={defaultStyles.optionsContainer}>
-          {currentQuestion.incorrect_answers.map((option, index) => (
-            <Button
-              key={index}
-              title={option}
-              onPress={() => handleAnswer(option)}
-              color={defaultStyles.buttonColor.backgroundColor}
-              style={defaultStyles.button}
-            />
-          ))}
-          <Button
-            title={currentQuestion.correct_answer}
-            onPress={() => handleAnswer(currentQuestion.correct_answer)}
-            color={defaultStyles.buttonColor.backgroundColor}
-            style={defaultStyles.button}
+      <View style={styles.flatListContainer}>
+        {currentQuestion.type === "multiple" && (
+          <FlatList
+            data={currentQuestion.incorrect_answers.concat(
+              currentQuestion.correct_answer
+            )}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item }) => (
+              <OptionsBtn title={item} onPress={() => handleAnswer(item)} />
+            )}
+            ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
           />
-        </View>
-      )}
+        )}
 
-      {currentQuestion.type === "boolean" && (
-        <View style={defaultStyles.optionsContainer}>
-          <Button
-            title="True"
-            onPress={() => handleAnswer("True")}
-            color={defaultStyles.buttonColor.backgroundColor}
+        {currentQuestion.type === "boolean" && (
+          <FlatList
+            data={["True", "False"]}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item }) => (
+              <OptionsBtn title={item} onPress={() => handleAnswer(item)} />
+            )}
+            ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
           />
-          <Button
-            title="False"
-            onPress={() => handleAnswer("False")}
-            color={defaultStyles.buttonColor.backgroundColor}
-          />
-        </View>
-      )}
+        )}
+      </View>
       {currentQuestion.type === "image" && (
         <Image
           source={{ uri: currentQuestion.image_url }}
@@ -112,5 +105,11 @@ const QuizScreen = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  flatListContainer: {
+    marginTop: 10,
+  },
+});
 
 export default QuizScreen;
